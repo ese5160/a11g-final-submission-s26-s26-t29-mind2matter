@@ -151,9 +151,9 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(4.5rem, 13vw, 10rem);
+  font-size: clamp(3.2rem, 13vw, 10rem);
   line-height: 0.84;
-  max-width: 9ch;
+  max-width: 100%;
 }
 
 h2 {
@@ -337,6 +337,43 @@ figcaption {
   display: block;
   font-size: 1.05rem;
   margin-top: 0.2rem;
+}
+
+.team-strip {
+  background:
+    linear-gradient(90deg, rgba(21, 27, 24, 0.98), rgba(0, 106, 110, 0.92) 58%, rgba(207, 91, 63, 0.78)),
+    var(--ink);
+  border-bottom: 1px solid rgba(255, 253, 247, 0.2);
+  color: var(--surface);
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr 1.2fr 0.8fr;
+}
+
+.team-strip div {
+  border-right: 1px solid rgba(255, 253, 247, 0.2);
+  min-width: 0;
+  padding: 1rem clamp(1rem, 4vw, 2rem);
+}
+
+.team-strip span {
+  color: #f0b56f;
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.team-strip strong {
+  display: block;
+  font-size: 1.05rem;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+
+.team-strip-name strong {
+  color: var(--surface);
+  font-size: clamp(1.45rem, 3vw, 2.5rem);
+  overflow-wrap: anywhere;
 }
 
 .section {
@@ -773,6 +810,7 @@ td:first-child {
   }
 
   .overview-strip,
+  .team-strip,
   .metrics,
   .reflection-grid,
   .code-grid {
@@ -815,6 +853,7 @@ td:first-child {
   }
 
   .overview-strip,
+  .team-strip,
   .metrics,
   .reflection-grid,
   .media-grid,

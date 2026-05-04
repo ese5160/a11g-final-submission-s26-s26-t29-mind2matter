@@ -133,7 +133,7 @@ Through ESE5160, we learned embedded C, RTOS task design, Silicon Labs SDK confi
 
 | Resource                    | Link                                                                                                                                                                |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GitHub Pages website        | TODO: add deployed GitHub Pages URL                                                                                                                                 |
+| GitHub Pages website        | [https://ese5160.github.io/a11g-final-submission-s26-s26-t29-mind2matter/](https://ese5160.github.io/a11g-final-submission-s26-s26-t29-mind2matter/)               |
 | Node-RED dashboard          | [http://20.119.220.234:1880/dashboard](http://20.119.220.234:1880/dashboard)                                                                                           |
 | Cloud API health            | [http://20.119.220.234/api/health](http://20.119.220.234/api/health)                                                                                                   |
 | Altium 365 final PCBA share | [https://upenn-eselabs.365.altium.com/designs/AC43FD12-9A4F-4001-A67A-D06C30BFA906](https://upenn-eselabs.365.altium.com/designs/AC43FD12-9A4F-4001-A67A-D06C30BFA906) |
