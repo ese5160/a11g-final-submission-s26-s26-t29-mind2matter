@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mind2Matter | Team 29</title>
+    <meta
+      name="description"
+      content="Mind2Matter is an ESE5160 smart-glasses prototype with embedded sensing, voice interaction, cloud AI, Node-RED dashboarding, and OTA firmware updates."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Mind2Matter home">
+        <span class="brand-symbol" aria-hidden="true"></span>
+        <span>Mind2Matter</span>
+      </a>
+      <nav class="nav" aria-label="Final submission sections">
+        <a href="#video">Video</a>
+        <a href="#summary">Summary</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#media">Media</a>
+        <a href="#code">Code</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">ESE5160 Final Submission | Team 29</p>
+          <h1 id="hero-title">Mind2Matter</h1>
+          <p class="lede">
+            Internet-connected smart glasses for voice assistance, visual context, reminders,
+            fall-event support, cloud AI, and over-the-air firmware updates.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#video">Final Demo</a>
+            <a class="button secondary" href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter">Public Source Repository</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img class="hero-photo" src="assets/media/device1.png" alt="Mind2Matter final integrated smart-glasses prototype">
+          <figcaption>Final integrated smart-glasses prototype with electronics and casework.</figcaption>
+        </figure>
+      </section>
+
+      <section class="overview-strip" aria-label="Prototype highlights">
+        <div>
+          <span>Platform</span>
+          <strong>SiWx917 / BRD2708A</strong>
+        </div>
+        <div>
+          <span>Cloud</span>
+          <strong>MQTT + Node-RED + HTTP</strong>
+        </div>
+        <div>
+          <span>Validated</span>
+          <strong>Voice, Vision, OTA</strong>
+        </div>
+        <div>
+          <span>Form Factor</span>
+          <strong>Wearable Glasses</strong>
+        </div>
+      </section>
+
+      <section id="video" class="section video-section" aria-labelledby="video-title">
+        <div class="section-heading">
+          <p class="kicker">1. Video Presentation</p>
+          <h2 id="video-title">Final demo video</h2>
+          <p>
+            The final video shows the complete wearable prototype, mechanical mounting,
+            sensor data on Node-RED, cloud-to-device controls, voice/vision interaction, speaker
+            playback, and OTA firmware update.
+          </p>
+        </div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/TrPUVLg9L8s"
+            title="Mind2Matter final demo video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="summary" class="section" aria-labelledby="summary-title">
+        <div class="section-heading">
+          <p class="kicker">2. Project Summary</p>
+          <h2 id="summary-title">A wearable embedded/cloud assistant.</h2>
+        </div>
+
+        <div class="two-column">
+          <article>
+            <h3>Device Description</h3>
+            <p>
+              Mind2Matter is an Internet-connected smart-glasses prototype that combines
+              embedded sensing, voice interaction, fall/reminder support, cloud AI, and OTA
+              firmware updates into a wearable assistive device.
+            </p>
+            <p>
+              The project was inspired by the need for lightweight assistive technology that can
+              provide contextual help without requiring the user to hold a phone or laptop.
+              Glasses are naturally positioned near the user's eyes and ears, making them useful
+              for visual context, voice input, and spoken feedback.
+            </p>
+            <p>
+              Internet connectivity augments the MCU by moving heavy computation and coordination
+              to the cloud. MQTT carries small status/control messages, HTTP carries media and
+              firmware payloads, Node-RED provides the dashboard, and the cloud worker handles
+              speech-to-text, text/vision reasoning, text-to-speech, and file hosting.
+            </p>
+          </article>
+          <article>
+            <h3>Device Functionality</h3>
+            <ul class="clean-list">
+              <li><strong>Voice QA:</strong> short press records audio, uploads WAV, receives a cloud reply, downloads TTS audio, and plays it.</li>
+              <li><strong>Vision request:</strong> long press records audio and captures/uploads image context before speaking the cloud answer.</li>
+              <li><strong>Fall/reminders:</strong> IMU events and cloud reminders trigger local prompts and dashboard-visible state.</li>
+              <li><strong>OTA:</strong> Node-RED triggers firmware update; MCU downloads `.rps`, reboots, and reports the new version.</li>
+            </ul>
+          </article>
+        </div>
+
+        <figure class="system-figure">
+          <img loading="lazy" decoding="async" src="assets/media/blockdiagram.png" alt="Mind2Matter wearable, firmware, cloud, and dashboard block diagram">
+          <figcaption>System-level block diagram for the wearable prototype, MCU firmware, cloud stack, and dashboard.</figcaption>
+        </figure>
+
+        <div class="reflection-grid">
+          <article>
+            <h3>Challenges</h3>
+            <p>
+              The hardest issues came from combining Simplicity Studio configuration, constrained
+              MCU memory, Wi-Fi/MQTT/HTTP reliability, camera UART handshakes, microphone/I2S
+              timing, cloud orchestration, custom PCBA flash timeout risk, and rushed casework.
+            </p>
+          </article>
+          <article>
+            <h3>Prototype Learnings</h3>
+            <p>
+              We learned how tightly coupled hardware and software are in embedded systems:
+              sampling rate, buffering strategy, timing, driver lifecycle, and communication
+              protocols all changed real system behavior.
+            </p>
+          </article>
+          <article>
+            <h3>Next Steps</h3>
+            <p>
+              The next version should improve state machines, reconnection logic, memory ownership,
+              timeout/retry behavior, custom PCBA bring-up, and casework fit/clearance testing.
+            </p>
+          </article>
+        </div>
+
+        <div class="links-panel">
+          <a href="http://20.119.220.234:1880/dashboard">Node-RED Dashboard</a>
+          <a href="http://20.119.220.234/api/health">Cloud API Health</a>
+          <a href="https://upenn-eselabs.365.altium.com/designs/AC43FD12-9A4F-4001-A67A-D06C30BFA906">Altium 365 PCBA</a>
+          <span>TODO: GitHub Pages URL</span>
+        </div>
+      </section>
+
+      <section id="requirements" class="section requirements-section" aria-labelledby="requirements-title">
+        <div class="section-heading">
+          <p class="kicker">3. Hardware & Software Requirements</p>
+          <h2 id="requirements-title">Final validation snapshot</h2>
+          <p>
+            The final validation reflects the integrated wearable prototype, the custom PCBA design
+            target, and the SiLabs BRD2708A firmware fallback used to keep the full cloud and OTA
+            workflow demonstrable despite PCBA flash timeout risk.
+          </p>
+        </div>
+
+        <div class="metrics">
+          <div><span>IMU Loop</span><strong>20 ms</strong><p>Meets 50 Hz target.</p></div>
+          <div><span>PTT Start</span><strong>120-180 ms</strong><p>Under 300 ms target.</p></div>
+          <div><span>Image Upload</span><strong>3.8 s median</strong><p>Under 10 s target.</p></div>
+          <div><span>Vision TTS</span><strong>7.6 s median</strong><p>Under 20 s target.</p></div>
+        </div>
+
+        <details open>
+          <summary>Hardware requirements</summary>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Requirement</th>
+                  <th>Validation Result</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>HRS-01</td><td>Use SIWG917Y121MGABA as MCU/wireless IC.</td><td>Firmware ran on BRD2708A / SiWx917 and reached MQTT broker.</td><td><span class="status partial">Dev-board substitution</span></td></tr>
+                <tr><td>HRS-02</td><td>Include 3-axis accel and 3-axis gyro IMU.</td><td>I2C IMU sampled every 20 ms with decoded accel/gyro reads.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>HRS-03</td><td>Include at least 640x480 still camera.</td><td>Camera path worked for cloud upload; UART reliability still needs hardening.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>HRS-04</td><td>Include user button for PTT and alert acknowledgement.</td><td>Short press QA, long press vision, and fall cancel all worked.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>HRS-05</td><td>Include audio actuator for prompts and alerts.</td><td>Local tones, reminders, and downloaded WAV replies were audible.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>HRS-06</td><td>Use single-cell Li-ion battery.</td><td>Custom PCBA targets single-cell Li-ion power.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>HRS-07</td><td>Include USB-C or USB-5V charging/protection.</td><td>Charging/protection circuitry is included in the board design target.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>HRS-08</td><td>Provide required regulated rails.</td><td>PCBA + battery powered MCU, IMU, camera path, and audio path during integrated demo.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>HRS-09</td><td>Include microphone sampling at >= 16 kHz.</td><td>Firmware captured 16 kHz, 16-bit mono WAV audio.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>HRS-10</td><td>Wearable eyeglasses form factor.</td><td>Prototype was mounted into eyeglasses-style casework for final demo.</td><td><span class="status met">Met</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details open>
+          <summary>Software requirements</summary>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Requirement</th>
+                  <th>Validation Result</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>SRS-01</td><td>Sample IMU at >= 50 Hz.</td><td>20 ms task period, about 50 Hz observed over 5-minute run.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>SRS-02</td><td>Fall trigger within <= 2 s.</td><td>8/10 simulated traces triggered; median 1.18 s, max success 1.62 s.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>SRS-03</td><td>Prompt on fall and alert after 30 s if not cancelled.</td><td>Prompt immediate; no-cancel trial escalated after about 30.2 s.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>SRS-04</td><td>Apply reminders/settings within <= 10 s.</td><td>20 MQTT commands applied with 0.42 s median and 1.8 s max.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>SRS-05</td><td>Start PTT capture within <= 300 ms.</td><td>Typical start latency was 120-180 ms after debounced press.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>SRS-06</td><td>Reminder audio within <= 10 s.</td><td>10/10 reminder tests triggered within 1.3 s.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>SRS-07</td><td>Acknowledge/cancel within <= 5 s.</td><td>Local ack under 0.2 s; MQTT ack usually visible under 1 s.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>SRS-08</td><td>Image capture/upload within <= 10 s.</td><td>6 normal trials completed in 3.8 s median and 6.6 s max.</td><td><span class="status met">Met</span></td></tr>
+                <tr><td>SRS-09</td><td>Vision TTS result within <= 20 s.</td><td>Controlled trials: 7.6 s median and 11.9 s max; Wi-Fi instability produced outliers.</td><td><span class="status partial">Function met</span></td></tr>
+                <tr><td>SRS-10</td><td>Internet Q&A spoken answer within <= 15 s.</td><td>Mock/fast path completed under 1 s; full AI path usually completed near 2-3 s.</td><td><span class="status met">Met</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
+      <section id="media" class="section media-section" aria-labelledby="media-title">
+        <div class="section-heading">
+          <p class="kicker">4. Project Photos & Screenshots</p>
+          <h2 id="media-title">Gallery</h2>
+          <p>
+            Final project photos, PCBA images, thermal captures, Altium screenshots, the public
+            dashboard, Node-RED flow screenshots, the system block diagram, and the MCAD model
+            are collected below.
+          </p>
+        </div>
+
+        <div class="media-groups">
+          <section class="media-group" aria-labelledby="prototype-gallery">
+            <h3 id="prototype-gallery">Prototype and Casework</h3>
+            <div class="media-grid featured">
+              <figure class="wide"><img loading="lazy" decoding="async" src="assets/media/device1.png" alt="Final integrated Mind2Matter prototype front view"><figcaption>Final integrated project with casework</figcaption></figure>
+              <figure class="wide"><img loading="lazy" decoding="async" src="assets/media/device2.png" alt="Mind2Matter wearable prototype alternate view"><figcaption>Final project view</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/device3.png" alt="Casework and mounting detail"><figcaption>Casework detail</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/device4.png" alt="Casework assembly view"><figcaption>Mechanical assembly</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/device5.png" alt="Mind2Matter device detail view"><figcaption>Device detail</figcaption></figure>
+            </div>
+          </section>
+
+          <section class="media-group" aria-labelledby="hardware-gallery">
+            <h3 id="hardware-gallery">PCBA, Thermal, and CAD</h3>
+            <div class="media-grid">
+              <figure><img loading="lazy" decoding="async" src="assets/media/pcbtop.png" alt="Standalone PCBA top side"><figcaption>PCBA top</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/pcbbottom.png" alt="Standalone PCBA bottom side"><figcaption>PCBA bottom</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/thermal1.jpeg" alt="Thermal camera image under load"><figcaption>Thermal image 1</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/thermal2.jpeg" alt="Second thermal camera image under load"><figcaption>Thermal image 2</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/board2d_1.png" alt="Altium board 2D view"><figcaption>Altium 2D view</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/board2d_2.png" alt="Altium board 2D routed view"><figcaption>Altium 2D view</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/board3d.png" alt="Altium board 3D view"><figcaption>Altium 3D view</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/MCADmodel.png" alt="MCAD casework model screenshot"><figcaption>MCAD model</figcaption></figure>
+            </div>
+          </section>
+
+          <section class="media-group" aria-labelledby="system-gallery">
+            <h3 id="system-gallery">Dashboard, Flow Screenshots, and System Diagram</h3>
+            <div class="media-grid featured flow-grid">
+              <figure class="wide"><img loading="lazy" decoding="async" src="assets/media/nodered_front.png" alt="Node-RED dashboard screenshot"><figcaption>Node-RED dashboard</figcaption></figure>
+              <figure class="wide"><img loading="lazy" decoding="async" src="assets/media/blockdiagram.png" alt="Mind2Matter system block diagram"><figcaption>Updated system block diagram</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/nodered_back1.png" alt="Node-RED flow workspace screenshot 1"><figcaption>Node-RED flow workspace 1</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/nodered_back2.png" alt="Node-RED flow workspace screenshot 2"><figcaption>Node-RED flow workspace 2</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/nodered_back3.png" alt="Node-RED flow workspace screenshot 3"><figcaption>Node-RED flow workspace 3</figcaption></figure>
+              <figure><img loading="lazy" decoding="async" src="assets/media/nodered_back4.png" alt="Node-RED flow workspace screenshot 4"><figcaption>Node-RED flow workspace 4</figcaption></figure>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="code" class="section code-section" aria-labelledby="code-title">
+        <div class="section-heading">
+          <p class="kicker">5. Codebase</p>
+          <h2 id="code-title">Final source links</h2>
+          <p>
+            Source code and website assets are published in the public A11 final-submission repository.
+          </p>
+        </div>
+        <div class="code-grid">
+          <a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter"><span>Repository</span><strong>A11G Public Repo</strong></a>
+          <a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter/tree/main/fp_fw_2708"><span>Firmware</span><strong>fp_fw_2708/</strong></a>
+          <a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter/blob/main/fp_fw_2708/app.c"><span>Main App</span><strong>app.c</strong></a>
+          <a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter/blob/main/fp_fw_2708/m2m_dev_board.c"><span>Drivers</span><strong>m2m_dev_board.c</strong></a>
+          <a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter/blob/main/cloud_stack/node-red/flows.json"><span>Node-RED</span><strong>flows.json</strong></a>
+          <a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter/tree/main/cloud_stack"><span>Cloud</span><strong>cloud_stack/</strong></a>
+          <a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter/blob/main/cloud_stack/ai-worker/app/main.py"><span>AI Worker</span><strong>main.py</strong></a>
+          <a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t29-mind2matter/tree/main/docs"><span>Website</span><strong>docs/</strong></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Mind2Matter | Team 29 | Yibo Wang & Zicong Zhang</p>
+      <a href="#top">Back to top</a>
+    </footer>
+  </body>
+</html>

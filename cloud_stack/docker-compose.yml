@@ -1,0 +1,55 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+
+  ai-worker:
+    build:
+      context: ./ai-worker
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PUBLIC_ROOT: /srv/public
+      PUBLIC_UPLOAD_DIR: /srv/public/uploads/devkit
+      PUBLIC_REPLY_DIR: /srv/public/audio_reply
+      PUBLIC_FIRMWARE_DIR: /srv/public/firmware
+    volumes:
+      - ./public:/srv/public
+    expose:
+      - "8000"
+    networks:
+      default:
+        aliases:
+          - aiworker
+
+  web:
+    image: nginx:alpine
+    restart: unless-stopped
+    depends_on:
+      - ai-worker
+    ports:
+      - "80:80"
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+  node-red:
+    build:
+      context: ./node-red
+    restart: unless-stopped
+    depends_on:
+      - mosquitto
+      - ai-worker
+    env_file:
+      - .env
+    environment:
+      TZ: ${TZ:-America/New_York}
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node-red/runtime:/data/runtime

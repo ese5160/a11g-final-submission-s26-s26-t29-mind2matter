@@ -1,0 +1,5 @@
+#CRC Codes for initially generated config files -- do not modify!
+sl_si91x_i2c_init_i2c0_config.h=1785089711
+sl_si91x_uart_config.h=514074113
+sl_si91x_ulp_uart_common_config.h=611562339
+sl_si91x_ulp_uart_config.h=2138504558

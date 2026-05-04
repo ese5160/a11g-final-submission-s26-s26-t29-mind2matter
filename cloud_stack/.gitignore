@@ -1,0 +1,5 @@
+.env
+mosquitto/data/
+mosquitto/log/
+node-red/runtime/
+ai-worker/app/__pycache__/

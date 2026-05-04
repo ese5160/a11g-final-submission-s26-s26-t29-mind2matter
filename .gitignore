@@ -1,33 +1,51 @@
-## Ignore Atmel Studio temporary files and build results
-# https://www.microchip.com/mplab/avr-support/atmel-studio-7
+.DS_Store
+**/.DS_Store
 
-# Atmel Studio is powered by an older version of Visual Studio,
-# so most of the project and solution files are the same as VS files,
-# only prefixed by an `at`.
+# Local-only documentation backups
+**/*.local.md
 
-#Build Directories
-[Dd]ebug/
-[Rr]elease/
+# Workspace and editor files
+FinalProject.code-workspace
+*.swp
+*.swo
 
-#Build Results
-*.o
-*.d
-*.eep
-*.elf
-*.hex
-*.map
-*.srec
+# Environment and secrets
+cloud_stack/.env
+**/.env
+fp_fw_2708/config/wifi_secrets.h
+fp_fw_2708/wifi_secrets.h
 
-#User Specific Files
-*.atsuo
+# Python caches
+**/__pycache__/
+*.pyc
 
-#Jlink log & config files
-*.log
-*.config 
+# Cloud runtime data
+cloud_stack/node-red/runtime/
+cloud_stack/mosquitto/data/
+cloud_stack/mosquitto/log/
+cloud_stack/public/audio_reply/*
+!cloud_stack/public/audio_reply/.gitkeep
+cloud_stack/public/uploads/devkit/*
+!cloud_stack/public/uploads/devkit/.gitkeep
+cloud_stack/public/firmware/*
+!cloud_stack/public/firmware/.gitkeep
 
-#Secret header file
-secret.h
-
-# no source files allowed in final repo
-*.c
-*.h 
+# Firmware build outputs
+fp_fw_2708/build/
+fp_fw_2708/cmake_gcc/build/
+fp_fw_2708/cmake_gcc/CMakeFiles/
+fp_fw_2708/cmake_gcc/CMakeCache.txt
+**/cmake-build-*/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/*.o
+**/*.obj
+**/*.elf
+**/*.axf
+**/*.bin
+**/*.hex
+**/*.map
+**/*.out
+**/*.rps
+**/*.s37
+**/*.log

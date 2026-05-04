@@ -3,5 +3,6 @@
         "stdint.h": "c",
         "nm_bsp_samd21.h": "c",
         "secret.h": "c"
-    }
+    },
+    "cmake.sourceDirectory": "/Users/wangsir/Desktop/ESE 5160/Project/a11g-final-submission-s26-s26-t29-mind2matter/fp_fw_2708/cmake_gcc"
 }

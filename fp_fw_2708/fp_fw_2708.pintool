@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<device:XMLDevice xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:device="http://www.silabs.com/ss/hwconfig/document/device.ecore" name="pin_tool.siwg917y111mgab" partId="mcu.arm.wfm.siwg917y111mgab" contextId="com.silabs.sdk.stack.sisdk:2025.6.3._1212252044-2373502478">
+  <mode name="DefaultMode">
+    <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100"/>
+    <property object="GPIO_12" propertyId="pin.name" value="CAM_RESET"/>
+    <property object="GPIO_12" propertyId="pin.reserve" value="Reserved"/>
+    <property object="GPIO_29" propertyId="ABModule.selectedRequirement" value="gpio%T%SL_SI91X_BUTTON_0%T%sl_si91x_button_init_btn0_config.h"/>
+    <property object="GPIO_29" propertyId="pin.reserve" value="Reserved"/>
+    <property object="I2S0" propertyId="ABModule.selectedRequirement" value="i2s0%T%SL_I2S0%T%sl_si91x_i2s_init_i2s0_config.h"/>
+    <property object="I2S0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="PORTIO" propertyId="portio.i2s0.enable.din0" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.i2s0.enable.dout0" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.i2s0.enable.sclk" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.i2s0.enable.wsclk" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.i2s0.location.din0" value="13"/>
+    <property object="PORTIO" propertyId="portio.i2s0.location.dout0" value="9"/>
+    <property object="PORTIO" propertyId="portio.i2s0.location.sclk" value="1"/>
+    <property object="PORTIO" propertyId="portio.i2s0.location.wsclk" value="5"/>
+    <property object="PORTIO" propertyId="portio.ulp_uart.enable.rx" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.ulp_uart.enable.tx" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.ulp_uart.location.rx" value="3"/>
+    <property object="PORTIO" propertyId="portio.ulp_uart.location.tx" value="1"/>
+    <property object="ULP_UART" propertyId="ABModule.selectedRequirement" value="ulp_uart%T%SL_ULP_UART%T%sl_si91x_ulp_uart_common_config.h"/>
+    <property object="ULP_UART" propertyId="ABPeripheral.included" value="true"/>
+  </mode>
+  <modeTransition>
+    <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.source" value="RESET"/>
+    <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.target" value="DefaultMode"/>
+  </modeTransition>
+</device:XMLDevice>

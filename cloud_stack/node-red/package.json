@@ -1,0 +1,7 @@
+{
+  "name": "mind2matter-node-red",
+  "private": true,
+  "dependencies": {
+    "node-red-dashboard": "^3.6.5"
+  }
+}
